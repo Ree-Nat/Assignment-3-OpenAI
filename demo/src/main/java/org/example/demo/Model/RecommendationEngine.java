@@ -21,5 +21,4 @@ public class RecommendationEngine {
         System.out.println("Using strategy: " + strategy.getStrategyName());
         return strategy.recommend(userTracks, count);
     }
-
 }
