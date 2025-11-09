@@ -1,6 +1,7 @@
-package org.example.demo.Model;
+package Service;
 
 import org.apache.hc.core5.http.ParseException;
+import org.example.demo.Model.ClientHandler;
 import org.example.demo.Model.SpotifyAPIClient;
 import org.example.demo.Model.Config;
 

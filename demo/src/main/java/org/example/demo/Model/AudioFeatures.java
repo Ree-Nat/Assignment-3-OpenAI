@@ -60,4 +60,9 @@ public class AudioFeatures {
         this.acousticness = acousticness;
     }
 
+    public String toString()
+    {
+        return trackId + danceability + energy + valence + tempo + acousticness;
+    }
+
 }
