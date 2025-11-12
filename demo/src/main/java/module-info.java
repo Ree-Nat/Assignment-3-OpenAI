@@ -9,4 +9,7 @@ module org.example.demo {
 
     opens org.example.demo to javafx.fxml;
     exports org.example.demo;
+    exports org.example.demo.View;
+    opens org.example.demo.View to javafx.fxml;
+    opens org.example.demo.Controller to javafx.fxml;
 }
