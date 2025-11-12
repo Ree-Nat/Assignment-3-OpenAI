@@ -11,7 +11,8 @@ import org.example.demo.Model.SearchStrategy;
 import org.example.demo.Model.Track;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainScreenController {
@@ -81,5 +82,42 @@ public class MainScreenController {
         String userInput = searchByArtistTextField.getText();
         List<Track> recommendedTracks = recommender.getRecommendations(userInput, 1);
         addToList(recommendedTracks);
+    }
+
+    /**
+     * Saves work in current list
+     * @param actionEvent
+     */
+    public void saveWork(ActionEvent actionEvent) throws IOException {
+
+        List<String> savedTracks = new ArrayList<String>(musicReccomendationList.getItems());
+
+        FileWriter fileWriter = new FileWriter("saved_data.txt", false);
+
+        for(String savedItems : savedTracks){
+            fileWriter.write(savedItems + "\n");
+        }
+
+        fileWriter.close();
+    }
+
+    /**
+     * Loads recent work in recommendation list
+     * @param actionEvent
+     */
+    public void loadRecent(ActionEvent actionEvent) throws IOException {
+        this.clearList();
+
+        List<String> readTracks = new ArrayList<String>();
+
+        String filePath = "saved_data.txt";
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
+
+        String currentLine;
+        while((currentLine = bufferedReader.readLine()) != null)
+        {
+            musicReccomendationList.getItems().add(currentLine);
+
+        }
     }
 }
