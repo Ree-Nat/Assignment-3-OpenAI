@@ -71,13 +71,19 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <Button mnemonicParsing="false" text="Button" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#clearListButton" text="Clear List">
-               <VBox.margin>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#clearListButton" text="Clear List" />
+                  <Button fx:id="saveWorkButton" mnemonicParsing="false" onAction="#saveWork" text="Save" />
+                  <Button fx:id="loadRecentButton" mnemonicParsing="false" onAction="#loadRecent" text="Load Recent" />
+               </children>
+               <padding>
                   <Insets left="30.0" />
-               </VBox.margin>
-            </Button>
+               </padding>
+            </HBox>
          </children>
       </VBox>
    </children>

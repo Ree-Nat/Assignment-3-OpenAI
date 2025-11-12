@@ -2,6 +2,7 @@ package org.example.demo.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import org.apache.hc.core5.http.ParseException;
 import org.example.demo.Model.RandomStrategy;
@@ -15,6 +16,8 @@ import java.util.List;
 
 public class MainScreenController {
 
+    public Button saveWorkButton;
+    public Button loadRecentButton;
     @FXML
     ListView<String> musicReccomendationList;
 
