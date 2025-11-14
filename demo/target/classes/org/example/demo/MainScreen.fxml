@@ -59,6 +59,13 @@
                               <Button mnemonicParsing="false" onAction="#searchByAIButton" text="Search" />
                            </children>
                         </HBox>
+                         <HBox prefHeight="30.0" prefWidth="216.0" spacing="10">
+                             <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clear conversation history" textAlignment="CENTER">
+                                 </Text>
+                                 <Button mnemonicParsing="false" onAction="#clearConversationHistory" text="Clear" />
+                             </children>
+                         </HBox>
                         <HBox prefHeight="30.0" prefWidth="216.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Get random " textAlignment="CENTER">

@@ -5,17 +5,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import org.apache.hc.core5.http.ParseException;
-import org.example.demo.Model.RandomStrategy;
-import org.example.demo.Model.RecommendationEngine;
-import org.example.demo.Model.SearchStrategy;
-import org.example.demo.Model.Track;
+import org.example.demo.Model.*;
 import javafx.scene.control.TextField;
+import com.openai.models.responses.Response;
+
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainScreenController {
+    private final List<String> conversationHistory = new ArrayList<>();
+
 
     public Button saveWorkButton;
     public Button loadRecentButton;
@@ -50,6 +51,53 @@ public class MainScreenController {
      */
     @FXML
     public void searchByAIButton(ActionEvent actionEvent) {
+        String userInput = searchByArtistTextField.getText();
+
+        if (userInput == null || userInput.isBlank()) {
+            return;
+        }
+
+        conversationHistory.add("user: " + userInput);
+
+        OpenAPIClient api = new OpenAPIClient();
+        Response response = api.sendRequest(conversationHistory, "gpt-4.1-mini");
+
+        var output = response.output().get(0);
+        List<String> replies = new ArrayList<>();
+
+        var optionalMsg = output.message();
+
+        if (optionalMsg.isPresent()) {
+            var msg = optionalMsg.get();
+
+            for (var c : msg.content()) {
+                var t = c.asOutputText().text();
+                replies.add(t);
+            }
+        }
+
+        for (String reply : replies) {
+            conversationHistory.add("assistant: " + reply);
+        }
+
+        String text = replies.get(replies.size() - 1);
+
+        //String text = response.output().get(0).message().get().content().get(0).asOutputText().text();
+        //System.out.println("FULL RAW RESPONSE:");
+        //System.out.println(response);
+        System.out.println(text);
+
+        //conversationHistory.add("assistant: " + text);
+
+
+        musicReccomendationList.getItems().clear();
+        musicReccomendationList.getItems().add(text);
+    }
+
+    @FXML
+    public void clearConversationHistory() {
+        System.out.print("Conversation history cleared\n");
+        conversationHistory.clear();
     }
 
     /**
@@ -61,7 +109,7 @@ public class MainScreenController {
         for(Track item : Tracks)
         {
             musicReccomendationList.getItems().add(item.getAlbumName() +
-                                                    ":" + item.getName());
+                                                    ": " + item.getName());
         }
     }
 
