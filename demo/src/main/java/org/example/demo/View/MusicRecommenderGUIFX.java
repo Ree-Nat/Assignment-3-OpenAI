@@ -26,11 +26,11 @@ public class MusicRecommenderGUIFX extends Application {
             //HBox.setHgrow(hbox, Priority.ALWAYS);
             //Scene newScene = new Scene(hbox);
             //hbox.setAlignment(Pos.CENTER);
-            primaryStage.setWidth(1920);
-            primaryStage.setHeight(1080);
+            primaryStage.setWidth(1000);
+            primaryStage.setHeight(700);
             //hbox.setBackground(Background.fill(Color.web("#292929")));
             primaryStage.setScene(new Scene(mainScreen));
-            primaryStage.setTitle("Spotify Music Reccomender");
+            primaryStage.setTitle("Spotify Music Recommender");
             primaryStage.show();
         }
         catch (Exception e) {
