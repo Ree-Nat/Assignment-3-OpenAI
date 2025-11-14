@@ -28,6 +28,14 @@ public class MusicRecommenderGUI extends Application {
 
     private ServerConnection serverConnection;
 
+    /**
+     * Starts the main application by loading MainScreen.fxml
+     * @param stage the primary stage for this application, onto which
+     * the application scene can be set.
+     * Applications may create other stages, if needed, but they will not be
+     * primary stages.
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MusicRecommenderGUIFX.class.getResource("MainScreen.fxml"));

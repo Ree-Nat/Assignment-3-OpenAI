@@ -7,7 +7,9 @@ import com.openai.models.responses.ResponseCreateParams;
 import java.util.ArrayList;
 import java.util.List;
 
-//Sends request to API
+/**
+ * Client class that recommends based on open API
+ */
 public class OpenAPIClient {
     private final String apiKey = System.getenv("OPENAI_API_KEY");
 

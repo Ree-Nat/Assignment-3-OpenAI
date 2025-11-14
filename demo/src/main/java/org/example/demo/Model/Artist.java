@@ -1,6 +1,10 @@
 package org.example.demo.Model;
 import java.util.List;
 
+
+/**
+ * A class used to store information about artist in ID
+ */
 public class Artist {
     private String id;
     private String name;
