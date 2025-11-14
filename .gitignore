@@ -1,0 +1,18 @@
+# env
+.env
+.env.*
+*.env
+
+# mac
+.DS_Store
+
+# IDE
+.idea
+*.iml
+
+# node
+node_modules/
+
+# build
+target/
+out/
