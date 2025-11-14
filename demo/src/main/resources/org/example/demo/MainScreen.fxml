@@ -14,7 +14,7 @@
    <children>
       <VBox prefHeight="473.0" prefWidth="746.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Music Reccomendation">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Music Recommendation">
                <font>
                   <Font size="24.0" />
                </font>
