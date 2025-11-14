@@ -186,6 +186,49 @@ public class SpotifyAPIClient {
         }
     }
 
+    public List<Track> getArtistTopTracks(String artistId) throws IOException {
+        String url = String.format("%s/artists/%s/top-tracks?market=US",
+                Config.API_BASE_URL, artistId);
+
+        HttpGet httpGet = new HttpGet(url);
+        httpGet.setHeader("Authorization", "Bearer " + accessToken);
+
+        try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
+            String jsonResponse = EntityUtils.toString(response.getEntity());
+            JsonObject root = JsonParser.parseString(jsonResponse).getAsJsonObject();
+            JsonArray tracksArray = root.getAsJsonArray("tracks");
+            return parseTracksFromJsonArray(tracksArray);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String searchArtistId(String artistName) throws IOException {
+        String encoded = URLEncoder.encode(artistName, StandardCharsets.UTF_8);
+        String url = String.format("%s/search?q=%s&type=artist&limit=1",
+                Config.API_BASE_URL, encoded);
+
+        HttpGet httpGet = new HttpGet(url);
+        httpGet.setHeader("Authorization", "Bearer " + accessToken);
+
+        try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
+            String jsonResponse = EntityUtils.toString(response.getEntity());
+            JsonObject root = JsonParser.parseString(jsonResponse).getAsJsonObject();
+
+            JsonArray items = root
+                    .getAsJsonObject("artists")
+                    .getAsJsonArray("items");
+
+            if (items.size() == 0) return null;
+
+            return items.get(0).getAsJsonObject().get("id").getAsString();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
     public void close() throws IOException {
         httpClient.close();
     }
