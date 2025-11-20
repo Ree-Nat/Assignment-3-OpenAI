@@ -14,6 +14,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class that controls the main scene controller of main interface of program.
+ */
 public class MainScreenController {
     private final List<String> conversationHistory = new ArrayList<>();
 
@@ -47,7 +50,7 @@ public class MainScreenController {
 
     /**
      * Search Recommendation based on AI.
-     * @param actionEvent a action event button
+     * @param actionEvent an action event button
      */
     @FXML
     public void searchByAIButton(ActionEvent actionEvent) {

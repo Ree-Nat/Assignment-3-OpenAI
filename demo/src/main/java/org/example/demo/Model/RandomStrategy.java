@@ -6,7 +6,19 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
+
+/**
+ * Type of strategy that handles getting random artist from API
+ */
 public class RandomStrategy implements RecommendationStrategy{
+    /**
+     * Reccomends random tracks via spotify API
+     * @param query a string representing track id, artist name, album name
+     * @param count the amount of tracks to be retrieved via spotify API
+     * @return a List of tracks
+     * @throws IOException if API cannot be called
+     * @throws ParseException if parsing a null object from a failed api call.
+     */
     @Override
     public List<Track> recommend(String query, int count) throws IOException, ParseException {
          //get random string of letters

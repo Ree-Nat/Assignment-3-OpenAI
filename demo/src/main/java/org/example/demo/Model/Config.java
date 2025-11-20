@@ -1,5 +1,9 @@
 package org.example.demo.Model;
 
+
+/**
+ * Configures the client id and key from spotify API
+ */
 public class Config {
     // Replace with your Spotify credentials
     public static final String CLIENT_ID = "67d71750f5094c48980770ba4ae4b946";

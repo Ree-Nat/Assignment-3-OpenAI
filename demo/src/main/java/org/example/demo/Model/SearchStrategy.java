@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * A class that recommends artist based on searching the name
+ */
 public class SearchStrategy implements  RecommendationStrategy{
 
     @Override
