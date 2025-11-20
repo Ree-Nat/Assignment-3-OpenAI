@@ -48,3 +48,4 @@ public class RandomStrategy implements RecommendationStrategy{
         return "";
     }
 }
+

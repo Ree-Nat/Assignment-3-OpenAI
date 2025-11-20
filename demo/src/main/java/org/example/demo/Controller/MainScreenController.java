@@ -171,4 +171,47 @@ public class MainScreenController {
 
         }
     }
+
+    private boolean listAlreadyContains(String trackName) {
+        for (Object item : musicReccomendationList.getItems()) {
+            if (item.toString().equalsIgnoreCase(trackName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    @FXML
+    TextField moodTextField;
+
+    @FXML
+    public void searchByMood(ActionEvent actionEvent) {
+        String mood = moodTextField.getText();
+
+        if (mood == null || mood.isBlank()) {
+            musicReccomendationList.getItems().add("Please enter a mood.");
+            return;
+        }
+
+        conversationHistory.add("user: Recommend songs for this mood: " + mood);
+
+        OpenAPIClient api = new OpenAPIClient();
+        Response response = api.sendRequest(conversationHistory, "gpt-4.1-mini");
+
+        String reply = response.output()
+                .get(0)
+                .message()
+                .get()
+                .content()
+                .get(0)
+                .asOutputText()
+                .text();
+
+        conversationHistory.add("assistant: " + reply);
+
+        musicReccomendationList.getItems().add(reply);
+    }
+
 }
+
