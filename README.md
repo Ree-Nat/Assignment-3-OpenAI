@@ -4,6 +4,9 @@ Nathan Rinon
 Caden Maki
 Elvin Nyguen
 
+## Demo video
+https://www.youtube.com/watch?v=ihPKhIilNWg
+
 ## Project Description
 A music recommender system that uses Spotify APi and Open API to recommend songs based on requested queries. 
 
@@ -40,3 +43,4 @@ A music recommender system that uses Spotify APi and Open API to recommend songs
 
 ## Future Enhancements
 - If we had more time, our group would ideally like to add a more advanced recommender system that uses audio features as well as collaborative recommendation. 
+
