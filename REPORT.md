@@ -20,23 +20,14 @@ Learned:
 
 ## Design Pattern Justifications
 
-**Strategy Pattern:**  
-For the strategy patterns, we used this design in order to simplify the process of choosing
-which sort of algorithm to use when we reccomend to the user. It abstracts the need to know what
-strategy to use in case of a function in a program that demands a strategy, not counting what sort
-of strategy it is. 
-**DTO Pattern:**  
-We used the DTO pattern in order to simplify getting data from a json file. Instead of choosing
-what specific item to get, we put it in a class to extract data for Track items. 
-**Observer Pattern:**  
-We used the observer pattern to seperate the responsibilities between the Model files, Controller classes,
-and the user interface. Instead of relying on objects in the model class to change, the observer (which uses
-the fxml file listeners of javafx), waits for responses from the user and updates those objects and then
-the objects change with the display.
+- **Strategy Pattern:**  For the strategy patterns, we used this design in order to simplify the process of choosing which sort of algorithm to use when we reccomend to the user. It abstracts the need to know what strategy to use in case of a function in a program that demands a strategy, not counting what sort of strategy it is.
+-  **DTO Pattern:**  We used the DTO pattern in order to simplify getting data from a json file. Instead of choosing what specific item to get, we put it in a class to extract data for Track items. 
+-  **Observer Pattern:**  We used the observer pattern to seperate the responsibilities between the Model files, Controller classes, and the user interface. Instead of relying on objects in the model class to change, the observer (which uses the fxml file listeners of javafx), waits for responses from the user and updates those objects and then the objects change with the display.
 
 ## AI Usage
 
 Used ChatGPT to help set up Open AI's API key.
 
 ## Time Spent: ~20 hours
+
 
